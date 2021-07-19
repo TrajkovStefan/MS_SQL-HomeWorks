@@ -2,6 +2,8 @@
 --Procedure should create only Grade header info (not Grade Details)
 --Procedure should return the total number of grades in the system for the Student on input (from the CreateGrade)
 --Procedure should return second resultset with the MAX Grade of all grades for the Student and Teacher on input (regardless the Course)
+USE SEDCHome
+GO
 
 CREATE OR ALTER PROCEDURE dbo.CreateGrade(@CreatedDate DATE, @StudentID INT, @CourseID INT,@TeacherID INT,@Grade INT)
 AS 
@@ -18,7 +20,7 @@ WHERE StudentID=@StudentID
 AND TeacherID=@TeacherID
 END
 GO
-EXEC dbo.CreateGrade @CreatedDate='1999.03.19',@StudentID=111,@CourseID=1,@TeacherID=9,@Grade =9
+EXEC dbo.CreateGrade @CreatedDate='1999.03.19',@StudentID=222,@CourseID=2,@TeacherID=8,@Grade =8
 SELECT TOP 10*
 FROM dbo.Grade
 ORDER BY 1 DESC
